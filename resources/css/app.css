@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.bg-light-beige {
+    background-color: #F4F1DE; /* لون البيج الفاتح */
+}
+
+.text-dark-orange {
+    color: #E07A5F; /* لون برتقالي غامق */
+}
+
+.hover-orange:hover {
+    color: #E07A5F !important; /* برتقالي غامق عند التمرير */
+}
+
+.text-dark {
+    color: #3D405B; /* لون بني غامق */
+}
