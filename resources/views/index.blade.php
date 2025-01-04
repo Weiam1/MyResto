@@ -1,6 +1,11 @@
 @extends('layouts.app')
-
-
 @section('content')
-   <h1>Welkom from index</h1>
+
+
+
+<div class="hero-bg-image">
+   <h1 class="hero-title">Welcome to Our Recipe Website</h1>
+   <a href="/" class="hero-btn">Explore Recipes</a>
+</div>
+
 @endsection
