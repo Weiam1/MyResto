@@ -2,18 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
+/* footer style  */
 .bg-light-beige {
-    background-color: #F4F1DE; /* لون البيج الفاتح */
+    background-color: #f4f1de; /* لون البيج الفاتح */
 }
 
 .text-dark-orange {
-    color: #E07A5F; /* لون برتقالي غامق */
+    color: #e07a5f; /* لون برتقالي غامق */
 }
 
 .hover-orange:hover {
-    color: #E07A5F !important; /* برتقالي غامق عند التمرير */
+    color: #e07a5f !important; /* برتقالي غامق عند التمرير */
 }
 
 .text-dark {
-    color: #3D405B; /* لون بني غامق */
+    color: #3d405b; /* لون بني غامق */
+}
+
+/* index style*/
+.hero-bg-image {
+    background: url("/public/images/backgroundImg.jpg") no-repeat center center /
+        cover;
+    background-attachment: fixed;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.hero-title {
+    color: #3d405b; /* النص بني داكن */
+    font-size: 3rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.hero-btn {
+    background-color: #e07a5f; /* الزر برتقالي غامق */
+    color: #ffffff; /* النص أبيض */
+    padding: 15px 25px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+}
+.hero-btn:hover {
+    background-color: #f4f1de; /* لون الزر عند التمرير */
+    color: #3d405b; /* النص بني داكن عند التمرير */
 }
