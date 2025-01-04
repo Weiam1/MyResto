@@ -29,8 +29,15 @@
 
             <!-- Page Content -->
             <main>
+                
                 @yield('content')
             </main>
+
+            <!-- Footer -->
+            <div>
+                @include('layouts.footer')
+            
+</div>
         </div>
     </body>
 </html>
