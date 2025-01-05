@@ -79,7 +79,47 @@
 </div>
 
 
+<!-- News Section -->
+<div class="container text-center py-5">
+   <h2 class="text-dark-orange font-weight-bold mb-4" style="font-size: 2.5rem;">Latest News & Cooking Tips</h2>
+   <p class="text-light-beige px-3">
+      Stay updated with the latest news and tips to enhance your cooking skills. Explore new techniques and ideas to elevate your culinary journey.
+   </p>
+</div>
 
+<div class="container py-5">
+   <div class="row g-4">
+     
+      <div class="col-md-6">
+         <div class="card border-0 shadow-sm h-100 bg-light-beige">
+            <img src="/images/img1.jpg" class="card-img-top object-cover rounded" alt="News Image">
+            <div class="card-body">
+               <h5 class="card-title text-dark-orange">5 Tips to Master Baking</h5>
+               <p class="text-muted" style="font-size: 0.9rem;">Published on: January 5, 2025</p>
+               <p class="text-dark">
+                  Learn the secrets to perfect baking with these simple yet effective tips. Transform your desserts into delightful masterpieces.
+               </p>
+               <a href="/news/1" class="btn-orange mt-3">Read More</a>
+            </div>
+         </div>
+      </div>
+
+      <!-- News Item 2 -->
+      <div class="col-md-6">
+         <div class="card border-0 shadow-sm h-100 bg-light-beige">
+            <img src="/images/img1.jpg" class="card-img-top object-cover rounded" alt="News Image">
+            <div class="card-body">
+               <h5 class="card-title text-dark-orange">Healthy Cooking: Quick and Easy Tips</h5>
+               <p class="text-muted" style="font-size: 0.9rem;">Published on: January 3, 2025</p>
+               <p class="text-dark">
+                  Discover how to prepare quick, healthy meals with these expert tips that will save you time without compromising on nutrition.
+               </p>
+               <a href="/news/2" class="btn-orange mt-3">Read More</a>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
 
 
 @endsection
