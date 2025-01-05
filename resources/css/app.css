@@ -41,6 +41,7 @@ body {
     text-transform: uppercase;
     font-weight: bold;
     margin-bottom: 20px;
+   
 }
 .hero-btn {
     background-color: #e07a5f; /* الزر برتقالي غامق */
@@ -91,3 +92,44 @@ body {
 }
 
 
+/* Blog Categories Section */
+.blog-categories {
+    text-align: center;
+    padding: 2rem;
+    background-color: #3D405B; /* بني داكن */
+    color: #F4F1DE; /* بيج فاتح */
+}
+.blog-title {
+    color: #E07A5F; /* برتقالي غامق */
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+.blog-category {
+    display: block;
+    font-weight: bold;
+    font-size: 1.25rem;
+    color: #F4F1DE; /* بيج فاتح */
+    text-decoration: none;
+    padding: 0.5rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.blog-category:hover {
+    background-color: #E07A5F; /* برتقالي غامق عند التمرير */
+    color: #3D405B; /* بني داكن عند التمرير */
+}
+
+/* Sections */
+.category-section {
+    padding: 3rem 1rem;
+    background-color: #F4F1DE; /* بيج فاتح */
+    margin-top: 2rem;
+    border-radius: 8px;
+}
+.category-title {
+    color: #E07A5F; /* برتقالي غامق */
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1rem;
+}
