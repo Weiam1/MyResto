@@ -133,3 +133,51 @@ body {
     text-align: center;
     margin-bottom: 1rem;
 }
+
+/* News section */
+/* General Colors */
+.bg-light-beige {
+    background-color: #F4F1DE; /* بيج فاتح */
+}
+
+.text-light-beige {
+    color: #F4F1DE; /* بيج فاتح */
+}
+
+.text-dark {
+    color: #3D405B; /* بني داكن */
+}
+
+.text-dark-orange {
+    color: #E07A5F; /* برتقالي غامق */
+}
+
+/* Button Style */
+.btn-orange {
+    background-color: #E07A5F; /* برتقالي غامق */
+    color: #FFFFFF; /* أبيض */
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+    border: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-orange:hover {
+    background-color: #F4F1DE; /* بيج فاتح عند التمرير */
+    color: #3D405B; /* بني داكن عند التمرير */
+}
+
+/* Card Styling */
+.card-title {
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+.bg-light-beige .card-body {
+    background-color: #F4F1DE; /* بيج فاتح */
+    border-radius: 8px;
+}
