@@ -89,7 +89,7 @@
 
 <div class="container py-5">
    <div class="row g-4">
-      <!-- News Item 1 -->
+     
       <div class="col-md-6">
          <div class="card border-0 shadow-sm h-100 bg-light-beige">
             <img src="/images/img1.jpg" class="card-img-top object-cover rounded" alt="News Image">
