@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
 /* footer style  */
 .bg-light-beige {
     background-color: #f4f1de; /* لون البيج الفاتح */
@@ -52,3 +56,38 @@
     background-color: #f4f1de; /* لون الزر عند التمرير */
     color: #3d405b; /* النص بني داكن عند التمرير */
 }
+
+/* Recipe Card Styles */
+.text-box {
+    background-color: rgba(255, 255, 255, 0.1); /* خلفية بيضاء شفافة */
+    padding: 30px;
+    border-radius: 5px;
+}
+.text-light {
+    color: #f4f1de; /* النص أبيض */
+}
+.text-muted-light {
+    color: rgba(255, 255, 255, 0.8); /* نص رمادي فاتح */
+}
+.btn-orange {
+    background-color: #E07A5F; /* لون برتقالي */
+    color: #FFFFFF; /* النص أبيض */
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+    border: none; /* إزالة الحدود */
+    transition: all 0.3s ease-in-out; /* تأثير الحركة */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* إضافة ظل */
+    margin-top: 20px;
+}
+.btn-orange:hover {
+    background-color:#f4f1de; /* لون بيج عند التمرير */
+    color: #E07A5F; /* لون النص برتقالي عند التمرير */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* ظل أكبر عند التمرير */
+    transform: translateY(-3px); /* رفع الزر عند التمرير */
+}
+
+
