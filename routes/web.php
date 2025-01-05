@@ -4,11 +4,16 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\PagesController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\NewsController;
 
 Auth::routes();
 
 
 Route::get('/', [PagesController::class, 'index']);
+
+Route::resource('/news',NewsController::class);
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
