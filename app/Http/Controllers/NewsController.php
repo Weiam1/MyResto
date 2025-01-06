@@ -6,13 +6,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\News;
 
 class NewsController extends Controller
 {
 
-    public function index()
-    {
-        return view('news.index');
+    public function index(){
+       
+        return view('news.index')
+        ->with('news', News::orderBy('created_at','DESC')->get());
     }
 
     /**
@@ -20,7 +22,7 @@ class NewsController extends Controller
      */
     public function create()
     {
-        //
+      
     }
 
     /**

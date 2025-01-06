@@ -135,6 +135,10 @@ body {
 }
 
 /* News section */
+.text-dark-orange {
+    color: #E07A5F;
+}
+
 
 .bg-light-beige {
     background-color: #F4F1DE; /* بيج فاتح */
@@ -181,3 +185,4 @@ body {
     background-color: #F4F1DE; /* بيج فاتح */
     border-radius: 8px;
 }
+

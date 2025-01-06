@@ -45,4 +45,12 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+
+    /*
+     * to connect the relationship between news and user
+     */
+    public function news(){
+        return $this->hasMany(News::class);
+    }
 }
