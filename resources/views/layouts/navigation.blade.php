@@ -20,6 +20,10 @@
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
+
+            <a href="/news" class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 mr-4">
+        {{ ('News') }}
+    </a>
                 @if (Auth::check())
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
@@ -53,9 +57,7 @@
                     </x-dropdown>
                 @else
 
-                <a href="/news" class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 mr-4">
-        {{ ('News') }}
-    </a>
+      
 
                       <!-- Link to Login -->
     <a href="{{ route('login') }}" class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
