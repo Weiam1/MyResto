@@ -1,12 +1,16 @@
-@extends('layouts.app')
-@section('content')
+<x-app-layout>
 
 <div class="container text-center pt-5 pb-3">
     <h1 class="display-4 fw-bold text-dark-orange">All News</h1>
 </div>
 
 
-
+<!-- admin privilages -->
+@if(Auth::check() && Auth::user()->is_admin)
+<div class="container py-5">
+    <a href="/news/create" class="btn-orange">Add New Post</a>
+</div>
+@endif
 
 @foreach ($news as $item)
 
@@ -22,7 +26,7 @@
       <div class="row align-items-center">
          <!-- Image Section -->
          <div class="col-md-6 mb-4">
-            <img class="img-fluid rounded" src="{{$item->image}}" alt="Recipe Image">
+            <img class="img-fluid rounded" src="/images/{{$item->image}}" alt="Recipe Image">
          </div>
 
          <!-- Content Section -->
@@ -44,4 +48,4 @@
 
         
 @endforeach;
-@endsection
+</x-app-layout>

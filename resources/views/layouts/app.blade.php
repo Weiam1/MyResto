@@ -31,8 +31,7 @@
 
             <!-- Page Content -->
             <main>
-                
-                @yield('content')
+                {{$slot}}
             </main>
 
             <!-- Footer -->
