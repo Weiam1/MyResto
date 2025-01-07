@@ -17,7 +17,7 @@
             <img class="img-fluid rounded" src="/images/{{$news->image}}" alt="Recipe Image">
          </div>
 
-         <!-- Content Section -->
+        
          <div class="col-md-6">
             <div class="text-box">
                <span class="text-light font-weight-bold pt-3">By: {{ $news->user->name }} | 
