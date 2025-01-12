@@ -31,13 +31,14 @@
 
             <!-- Page Content -->
             <main>
-                {{$slot}}
+
+                @yield('content')
             </main>
 
             <!-- Footer -->
             <div>
                 @include('layouts.footer')
-            
+
 </div>
         </div>
     </body>

@@ -1,5 +1,8 @@
+@extends('layouts.app')
+@section('content')
 
-<x-app-layout>
+
+
 <div class="container text-center pt-5 pb-3">
     <h1 class="display-4 fw-bold text-dark-orange">{{$news->title}}</h1>
 </div>
@@ -29,8 +32,25 @@
             </div>
          </div>
       </div>
+
+<!-- Only the admin that posted the post can edit -->
+
+@if(Auth::check() && Auth::user()->id === $news->user_id && Auth::user()->is_admin)
+<div class="container py-5">
+<a href="{{ route('news.edit', $news->slug) }}" class="btn-orange">Edit Post</a>
+</div>
+@endif
+
+
+      <!-- admin privilages Any admin can edit
+@if(Auth::check() && Auth::user()->is_admin)
+<div class="container py-5">
+    <a href="{{ route('news.edit', $news->slug) }}" class="btn-orange">Edit Post</a>
+</div>
+@endif -->
+
    </div>
 
 
         
-</x-app-layout>
+   @endsection

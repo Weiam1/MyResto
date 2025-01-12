@@ -1,4 +1,5 @@
-<x-app-layout>
+@extends('layouts.app')
+@section('content')
 
 <div class="container text-center pt-5 pb-3">
     <h1 class="display-4 fw-bold text-dark-orange">All News</h1>
@@ -48,4 +49,4 @@
 
     
 @endforeach
-</x-app-layout>
+@endsection
