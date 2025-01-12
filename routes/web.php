@@ -18,14 +18,22 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 // مسارات الأخبار
-
-    Route::get('/news', [NewsController::class, 'index'])->name('news.index');
+Route::middleware(['auth', 'admin'])->group(function () {
+    
 
     Route::get('/news/create', [NewsController::class, 'create'])->name('news.create');
     Route::post('/news', [NewsController::class, 'store'])->name('news.store');
+});
+// Route to display the edit form
+Route::get('/news/{slug}/edit', [NewsController::class, 'edit'])->name('news.edit');
+
+// Route to handle the update submission
+Route::put('/news/{slug}', [NewsController::class, 'update'])->name('news.update');
+
 
     Route::get('/news/{slug}', [NewsController::class, 'show'])->name('news.show');
-
+Route::get('/news', [NewsController::class, 'index'])->name('news.index');
+Route::put('/news/{slug}', [NewsController::class, 'update'])->name('news.update');
 
 
 // الملف الشخصي

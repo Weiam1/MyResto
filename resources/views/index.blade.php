@@ -1,4 +1,5 @@
-<x-app-layout>
+@extends('layouts.app')
+@section('content')
 
 
 <!-- HERO-->
@@ -121,4 +122,4 @@
 </div>
 
 
-</x-app-layout>
+@endsection

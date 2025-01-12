@@ -8,6 +8,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\News;
+use App\Http\Middleware\AdminMiddleware;
 
 class NewsController extends Controller
 {
@@ -63,17 +64,40 @@ class NewsController extends Controller
     /**
      * edit the post
      */
-    public function edit(string $id)
+    public function edit($slug)
     {
-        //
+        return view('news.edit')->with('news', News::where('slug', $slug)->firstOrFail());
+
     }
 
     /**
      * is like store but take the request from edit and update the post in the database
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $slug)
     {
-        //
+        $request->validate([
+            'image' => 'required|mimes:jpeg,png,jpg,gif|max:5048',  // image validation
+        ]);
+          // Find the news post by the original slug
+    $news = News::where('slug', $slug)->firstOrFail();
+
+    // Generate a new slug if the title has been changed
+    $newSlug = Str::slug($request->title, '-');
+
+      // Handle image upload if a new image is provided
+    if ($request->hasFile('image')) {
+        $newImageName = uniqid() . '-' . $newSlug . '.' . $request->image->extension();
+        $request->image->move(public_path('images'), $newImageName);
+        $news->image = $newImageName;
+    }
+
+    // Update the other fields
+    $news->title = $request->input('title');
+    $news->description = $request->input('description');
+    $news->slug = $newSlug;
+    $news->save();
+
+         return redirect('/news' )->with('message','Post was updated succesfully!');
     }
 
     /**
@@ -81,6 +105,8 @@ class NewsController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+         //
+
+
     }
 }
