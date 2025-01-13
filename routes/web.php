@@ -5,6 +5,8 @@ use App\Http\Controllers\Frontend\PagesController;
 use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\UserController;
+
 
 // مسارات المصادقة
 Auth::routes();
@@ -45,3 +47,14 @@ Route::middleware('auth')->group(function () {
 
 // الصفحة الرئيسية بعد تسجيل الدخول
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+// المسارات المستخدمين
+Route::middleware(['auth', 'admin'])->group(function () {
+        Route::get('/users', [UserController::class, 'index'])->name('users.index');
+        Route::post('/users/{user}/make-admin', [UserController::class, 'makeAdmin'])->name('users.makeAdmin');
+        Route::post('/users/{user}/remove-admin', [UserController::class, 'removeAdmin'])->name('users.removeAdmin');
+        Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
+        Route::post('/users', [UserController::class, 'store'])->name('users.store');
+    });
+

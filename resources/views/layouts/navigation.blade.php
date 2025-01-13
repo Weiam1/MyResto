@@ -19,11 +19,18 @@
             </div>
 
             <!-- Settings Dropdown -->
-            <div class="hidden sm:flex sm:items-center sm:ms-6">
+            <div class="hidden sm:flex sm:items-center sm:ms-6">  
+                  <!-- Users panel -->
+@if(Auth::check() && Auth::user()->is_admin)
+<a href="{{ route('users.index') }}" class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 mr-4">
+    {{ __('Users') }}
+</a>
+@endif
 
             <a href="/news" class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 mr-4">
         {{ ('News') }}
     </a>
+
                 @if (Auth::check())
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
@@ -68,6 +75,9 @@
     <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
         {{ __('Register') }}
     </a>
+    
+
+
                 @endif
             </div>
 
