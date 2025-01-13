@@ -103,9 +103,11 @@ class NewsController extends Controller
     /**
      * Deleete the post from the database
      */
-    public function destroy(string $id)
+    public function destroy($slug)
     {
-         //
+          // Find the news post by the original slug
+          $news = News::where('slug', $slug)->firstOrFail()->delete();
+    return redirect('/news' )->with('message','Post was Deleted!');
 
 
     }
