@@ -186,3 +186,61 @@ body {
     border-radius: 8px;
 }
 
+
+/* Form Styles */
+.form-container {
+    background-color: #f4f1de; /* خلفية بيج فاتح */
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* إضافة ظل خفيف */
+}
+
+.form-label {
+    color: #3d405b; /* بني داكن */
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #e07a5f; /* برتقالي غامق */
+    border-radius: 8px;
+    background-color: #fff; /* خلفية بيضاء */
+    color: #3d405b; /* نص بني داكن */
+    font-size: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* ظل خفيف */
+    transition: border-color 0.3s, box-shadow 0.3s; /* تأثير عند التفاعل */
+}
+
+.form-control:focus {
+    border-color: #e07a5f; /* برتقالي غامق عند التركيز */
+    box-shadow: 0 0 5px rgba(224, 122, 95, 0.5); /* تأثير ظل */
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.btn-orange {
+    background-color: #e07a5f; /* برتقالي غامق */
+    color: #fff; /* أبيض */
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-orange:hover {
+    background-color: #f4f1de; /* بيج فاتح عند التمرير */
+    color: #3d405b; /* بني داكن */
+    transform: translateY(-2px); /* رفع الزر */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* ظل أكبر عند التمرير */
+}
+
