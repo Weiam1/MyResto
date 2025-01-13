@@ -37,11 +37,21 @@
 
 @if(Auth::check() && Auth::user()->id === $news->user_id && Auth::user()->is_admin)
 <div class="container py-5">
-<a href="{{ route('news.edit', $news->slug) }}" class="btn-orange">Edit Post</a>
+<a href="{{ route('news.edit', $news->slug) }}" class="btn-orange" style="display: inline-block; margin-right: 10px;">Edit Post</a>
 </div>
+
+
+<form action="/news/{{$news->slug}}" method="post" style="inline-block;">
+@csrf
+@method('delete')
+
+
+<button type="submit" class="btn btn-danger"style="display: inline-block;" onclick="return confirm('Are you sure you want to delete this post?')">
+        Delete Post
+    </button>
+
+</form>
 @endif
-
-
       <!-- admin privilages Any admin can edit
 @if(Auth::check() && Auth::user()->is_admin)
 <div class="container py-5">
