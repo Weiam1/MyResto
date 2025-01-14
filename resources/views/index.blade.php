@@ -5,8 +5,8 @@
 <!-- HERO-->
 <div class="hero-bg-image">
    <h1 class="hero-title">Welcome to Our Recipe Website</h1>
-   <a href="/" class="hero-btn">Explore Recipes</a>
-</div>
+   <a href="{{ route('recipes.index') }}" class="hero-btn">Explore Recipes</a>
+   </div>
 
 
 <!-- Post section -->
@@ -54,28 +54,33 @@
 
 
 <!-- Sections -->
-<!-- Lunch Section -->
+<!-- Main Dish Section -->
 <div id="lunch" class="category-section">
-   <h3 class="category-title">Lunch Recipes</h3>
-   <p>Here are some delicious lunch recipes...</p>
+   <h3 class="category-title">Main Dish Recipes</h3>
+   <p>Here are some delicious Main Dish recipes...</p>
+   <a href="{{ route('recipes.category', 'Main Dish') }}" class="btn-orange">More</a>
 </div>
 
 <!-- Healthy Section -->
 <div id="healthy" class="category-section">
    <h3 class="category-title">Healthy Recipes</h3>
    <p>Here are some healthy recipes for a better lifestyle...</p>
+   <a href="{{ route('recipes.category', 'Healthy') }}" class="btn-orange">More</a>
 </div>
 
 <!-- Dessert Section -->
 <div id="dessert" class="category-section">
    <h3 class="category-title">Dessert Recipes</h3>
    <p>Indulge in our selection of sweet dessert recipes...</p>
+   <a href="{{ route('recipes.category', 'Dessert') }}" class="btn-orange">More</a>
 </div>
 
 <!-- Drinks Section -->
 <div id="drinks" class="category-section">
    <h3 class="category-title">Drinks Recipes</h3>
    <p>Cool down or warm up with these drink recipes...</p>
+   <a href="{{ route('recipes.category', 'Drinks') }}" class="btn-orange">More</a>
+
 </div>
 
 
