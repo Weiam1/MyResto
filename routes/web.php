@@ -6,6 +6,7 @@ use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\RecipeController;
 
 
 
@@ -84,3 +85,34 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
     //Search for a profile
     Route::get('/search', [ProfileController::class, 'search'])->name('profile.search');
+
+
+    // Recipes
+// عرض جميع الوصفات (لعرض صفحة الوصفات العامة)
+Route::get('/recipes', [RecipeController::class, 'index'])->name('recipes.index');
+
+// عرض وصفة محددة (لعرض التفاصيل لكل وصفة)
+Route::get('/recipes/{id}', [RecipeController::class, 'show'])->name('recipes.show');
+
+// عرض وصفات حسب الفئة (للفئات المختلفة مثل Lunch، Dessert)
+Route::get('/recipes/category/{category}', [RecipeController::class, 'category'])->name('recipes.category');
+
+// مسارات التعديلات الخاصة بالمديرين فقط
+Route::middleware(['auth', 'admin'])->group(function () {
+    // إضافة وصفة جديدة
+    
+    Route::middleware(['auth', 'admin'])->group(function () {
+        Route::get('/recipes/create', [RecipeController::class, 'create'])->name('recipes.create');
+        Route::post('/recipes', [RecipeController::class, 'store'])->name('recipes.store');
+    }); 
+    
+   
+    
+    // تعديل وصفة
+    Route::get('/recipes/{id}/edit', [RecipeController::class, 'edit'])->name('recipes.edit');
+    Route::put('/recipes/{id}', [RecipeController::class, 'update'])->name('recipes.update');
+    
+    // حذف وصفة
+    Route::delete('/recipes/{id}', [RecipeController::class, 'destroy'])->name('recipes.destroy');
+});
+
