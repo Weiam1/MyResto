@@ -244,3 +244,58 @@ body {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* ظل أكبر عند التمرير */
 }
 
+
+/* Profile Styles */
+.post-item {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.05); /* لون خلفية خفيف */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* ظل خفيف */
+}
+
+.text-box {
+    background-color: rgba(255, 255, 255, 0.1); /* خلفية شفافة */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.text-light {
+    color: #f4f1de; /* لون النص أبيض فاتح */
+}
+
+.text-muted-light {
+    color: rgba(255, 255, 255, 0.8); /* نص رمادي فاتح */
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+
+/* Search Button Style */
+/* Adjusted Search Button Style */
+.btn-orange {
+    background-color: #E07A5F !important; /* Dark Orange */
+    border: none;
+    color: #FFFFFF; /* White text */
+    padding: 0.5rem 1rem; /* Adjust padding for smaller button */
+    font-size: 0.875rem; /* Slightly smaller text size */
+    transition: all 0.3s ease-in-out;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-orange:hover {
+    background-color: #D86448; /* Slightly darker orange */
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.btn-orange:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(224, 122, 95, 0.8); /* Reduced focus glow */
+}

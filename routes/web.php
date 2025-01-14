@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\UserController;
 
 
+
 // مسارات المصادقة
 Auth::routes();
 
@@ -37,12 +38,13 @@ Route::put('/news/{slug}', [NewsController::class, 'update'])->name('news.update
 Route::get('/news', [NewsController::class, 'index'])->name('news.index');
 Route::put('/news/{slug}', [NewsController::class, 'update'])->name('news.update');
 
+    Route::get('/profile/{username}', [ProfileController::class, 'show'])->name('profile.show'); // عرض الملف الشخصي
 
 // الملف الشخصي
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy'); // حذف الحساب
 });
 
 // الصفحة الرئيسية بعد تسجيل الدخول
@@ -58,3 +60,27 @@ Route::middleware(['auth', 'admin'])->group(function () {
         Route::post('/users', [UserController::class, 'store'])->name('users.store');
     });
 
+    
+
+    // Route::middleware(['auth'])->group(function () {
+    //     Route::patch('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
+    // });
+
+
+    //Email verification
+    Route::get('/email/verify', function () {
+        return view('auth.verify-email');
+    })->middleware('auth')->name('verification.notice');
+    
+    Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+        $request->fulfill();
+        return redirect('/home'); // تعديل المسار حسب الحاجة
+    })->middleware(['auth', 'signed'])->name('verification.verify');
+    
+    Route::post('/email/verification-notification', function (Request $request) {
+        $request->user()->sendEmailVerificationNotification();
+        return back()->with('status', 'verification-link-sent');
+    })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
+    //Search for a profile
+    Route::get('/search', [ProfileController::class, 'search'])->name('profile.search');
