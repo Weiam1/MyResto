@@ -123,6 +123,8 @@ Route::get('/faqs', [FAQController::class, 'index'])->name('faqs.index');
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/faqs/create', [FAQController::class, 'create'])->name('faqs.create');
     Route::post('/faqs', [FAQController::class, 'store'])->name('faqs.store');
+    Route::get('/faqs/{id}/edit', [FAQController::class, 'edit'])->name('faqs.edit');
+    Route::put('/faqs/{id}', [FAQController::class, 'update'])->name('faqs.update');
     Route::delete('/faqs/{id}', [FAQController::class, 'destroy'])->name('faqs.destroy');
 });
 
