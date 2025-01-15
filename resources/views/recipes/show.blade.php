@@ -25,8 +25,46 @@
                 by 
                 {{ $recipe->user ? $recipe->user->name : 'Unknown author' }}
             </p>
+            
          </div>
-         @if(Auth::check() && Auth::user()->is_admin)
+         
+         <div class="container py-5">
+    <h1 class="display-4 fw-bold text-dark-orange">{{ $recipe->title }}</h1>
+    <p class="text-muted">{{ $recipe->description }}</p>
+
+    <!-- Comments Section -->
+    <div class="comments-section mt-5">
+        <h3>Comments</h3>
+        
+        <!-- Display Comments -->
+        @foreach ($recipe->comments as $comment)
+            <div class="mb-4">
+                <strong>
+                    <a href="{{ route('profile.show', ['username' => $comment->user->username]) }}">
+                        {{ $comment->user->name }}
+                    </a>
+                </strong>
+                <p>{{ $comment->content }}</p>
+                <hr>
+            </div>
+        @endforeach
+
+        <!-- Add Comment -->
+        @auth
+        <form action="{{ route('comments.store') }}" method="POST">
+            @csrf
+            <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
+            <textarea name="content" rows="4" class="form-control" placeholder="Write your comment..." required></textarea>
+            <button type="submit" class="btn btn-primary mt-3">Add Comment</button>
+        </form>
+        @else
+        <p>You need to <a href="{{ route('login') }}">log in</a> to add a comment.</p>
+        @endauth
+    </div>
+</div>
+    </div>
+</div>
+@if(Auth::check() && Auth::user()->is_admin)
     <a href="{{ route('recipes.edit', $recipe->id) }}" class="btn btn-warning btn-sm">
         Edit Recipe
     </a>
@@ -41,9 +79,9 @@
     </form>
 @endif
 
-
       </div>
    </div>
 </div>
+
 
 @endsection
