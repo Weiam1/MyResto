@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\FAQController;
-
+use App\Http\Controllers\ContactController;
 
 
 // مسارات المصادقة
@@ -125,3 +125,10 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::post('/faqs', [FAQController::class, 'store'])->name('faqs.store');
     Route::delete('/faqs/{id}', [FAQController::class, 'destroy'])->name('faqs.destroy');
 });
+
+
+
+// Contact Form
+
+Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
+Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
