@@ -27,5 +27,7 @@
                 <li class="mb-2"><a class="text-dark text-decoration-none hover-orange" href="{{ route('faqs.index') }}">FAQ</a></li>
             </ul>
         </div>
+        <li class="mb-2"><a class="text-dark text-decoration-none hover-orange" href="{{ route('contact.index') }}">Contact Us</a></li>
+
     </div>
 </footer>
