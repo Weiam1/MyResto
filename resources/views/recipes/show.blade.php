@@ -26,6 +26,22 @@
                 {{ $recipe->user ? $recipe->user->name : 'Unknown author' }}
             </p>
          </div>
+         @if(Auth::check() && Auth::user()->is_admin)
+    <a href="{{ route('recipes.edit', $recipe->id) }}" class="btn btn-warning btn-sm">
+        Edit Recipe
+    </a>
+@endif
+@if(Auth::check() && Auth::user()->is_admin)
+    <form action="{{ route('recipes.destroy', $recipe->id) }}" method="POST" class="d-inline">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn btn-danger btn-sm">
+            Delete Recipe
+        </button>
+    </form>
+@endif
+
+
       </div>
    </div>
 </div>
