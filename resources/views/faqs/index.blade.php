@@ -11,6 +11,7 @@
         </div>
     @endif
 
+
     @foreach ($categories as $category)
         <div class="mb-5">
             <h3 class="text-light-orange">{{ $category->name }}</h3>
@@ -19,6 +20,17 @@
                     <li class="mb-3">
                         <strong class="text-muted-light">{{ $faq->question }}</strong>
                         <p class="text-muted-light">{{ $faq->answer }}</p>
+                         <!-- Edit and Delete Buttons (Visible to Admins Only) -->
+                         @if (Auth::check() && Auth::user()->is_admin)
+                            <div class="mt-2">
+                                <a href="{{ route('faqs.edit', $faq->id) }}" class="btn btn-warning btn-sm me-2">Edit</a>
+                                <form action="{{ route('faqs.destroy', $faq->id) }}" method="POST" class="d-inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                </form>
+                            </div>
+                            @endif
                     </li>
                 @endforeach
             </ul>

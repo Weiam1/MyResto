@@ -42,6 +42,28 @@ class FAQController extends Controller
         return redirect()->route('faqs.index')->with('success', 'FAQ added successfully!');
     }
 
+    public function edit($id)
+{
+    $faq = FAQ::findOrFail($id);
+    $categories = FAQCategory::all();
+    return view('faqs.edit', compact('faq', 'categories'));
+}
+
+public function update(Request $request, $id)
+{
+    $request->validate([
+        'question' => 'required|string|max:255',
+        'answer' => 'required|string|max:2000',
+        'category_id' => 'required|exists:faq_categories,id',
+    ]);
+
+    $faq = FAQ::findOrFail($id);
+    $faq->update($request->all());
+
+    return redirect()->route('faqs.index')->with('success', 'FAQ updated successfully!');
+}
+
+
     /**
      * Remove the specified FAQ.
      */
