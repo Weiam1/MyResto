@@ -20,5 +20,12 @@
                 <li class="mb-2"><a class="text-dark text-decoration-none hover-orange" href="/recipe/3">Delicious Chocolate Cake</a></li>
             </ul>
         </div>
+         <!-- FAQ Link -->
+         <div>
+            <h3 class="text-dark-orange">Helpful Links</h3>
+            <ul class="list-unstyled mt-3">
+                <li class="mb-2"><a class="text-dark text-decoration-none hover-orange" href="{{ route('faqs.index') }}">FAQ</a></li>
+            </ul>
+        </div>
     </div>
 </footer>
