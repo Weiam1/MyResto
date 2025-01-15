@@ -6,13 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Recipe extends Model
-{
-    use HasFactory;
+{ protected $fillable = ['title', 'description', 'ingredients', 'steps', 'image', 'user_id', 'category_id'];
 
-    protected $fillable = [
-        'title', 'image', 'ingredients', 'steps', 'user_id', 'published_at'
-    ];
-
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
     // العلاقة مع المستخدم
     public function user()
     {
