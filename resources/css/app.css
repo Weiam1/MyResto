@@ -299,3 +299,47 @@ body {
     outline: none;
     box-shadow: 0 0 8px rgba(224, 122, 95, 0.8); /* Reduced focus glow */
 }
+/* Button Style */
+.btn-orange {
+    background-color: #E07A5F; /* Dark Orange */
+    color: #FFFFFF; /* White text */
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.btn-orange:hover {
+    background-color: #F4F1DE; /* Light Beige */
+    color: #3D405B; /* Dark Text */
+}
+
+/* FAQ Section Colors */
+.text-dark-orange {
+    color: #E07A5F; /* Dark Orange */
+}
+
+.bg-light-beige {
+    background-color: #F4F1DE ; /* Light Beige */
+}
+
+.text-dark {
+    color: #3D405B; /* Dark Text */
+}
+
+.text-muted {
+    color: #6C757D; /* Muted Text */
+}
+
+/* Text Colors */
+.text-light-orange {
+    color: #F4A261; /* Lighter Orange */
+}
+
+.text-muted-light {
+    color: rgba(255, 255, 255, 0.8); /* Light Muted White */
+}

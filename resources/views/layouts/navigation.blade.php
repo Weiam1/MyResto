@@ -26,11 +26,10 @@
         class="form-control rounded-pill me-2 shadow-sm border-dark-orange" 
         placeholder="Search for a username..." 
         required>
-    <button type="submit" class="btn btn-orange px-3 py-1 rounded-pill text-white fw-bold">
-        Search
+    <button type="submit" class="btn btn-orange px-4 py-2 rounded-pill shadow-sm text-white fw-bold">
+        <i class="fas fa-search me-1"></i> Search
     </button>
 </form>
-
 
 
 

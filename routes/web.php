@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RecipeController;
+use App\Http\Controllers\FAQController;
 
 
 
@@ -20,6 +21,7 @@ Route::get('/', [PagesController::class, 'index'])->name('home');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
 
 // مسارات الأخبار
 Route::middleware(['auth', 'admin'])->group(function () {
@@ -116,3 +118,10 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::delete('/recipes/{id}', [RecipeController::class, 'destroy'])->name('recipes.destroy');
 });
 
+// FAQ Routes
+Route::get('/faqs', [FAQController::class, 'index'])->name('faqs.index');
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/faqs/create', [FAQController::class, 'create'])->name('faqs.create');
+    Route::post('/faqs', [FAQController::class, 'store'])->name('faqs.store');
+    Route::delete('/faqs/{id}', [FAQController::class, 'destroy'])->name('faqs.destroy');
+});
