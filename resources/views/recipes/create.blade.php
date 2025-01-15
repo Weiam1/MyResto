@@ -61,20 +61,21 @@
         </div>
 
       <!-- Category Input -->
-<div class="mb-4">
-    <label for="category" class="form-label fw-bold text-dark">Category</label>
+      <div class="mb-4">
+    <label for="category_id" class="form-label fw-bold text-dark">Category</label>
     <select 
-        id="category" 
-        name="category" 
+        id="category_id" 
+        name="category_id" 
         class="form-control rounded-lg p-3 shadow-sm border" 
         required>
         <option value="" disabled selected>Select a category</option>
-        <option value="Main Dish">Main Dish</option>
-        <option value="Dessert">Dessert</option>
-        <option value="Healthy">Healthy</option>
-        <option value="Drinks">Drinks</option>
+        @foreach ($categories as $category)
+            <option value="{{ $category->id }}">{{ $category->name }}</option>
+        @endforeach
     </select>
 </div>
+
+
 
 
         <!-- Image Upload -->

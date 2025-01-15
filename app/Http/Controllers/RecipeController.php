@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Recipe;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Category;
 
 class RecipeController extends Controller
 {
@@ -13,8 +14,8 @@ class RecipeController extends Controller
      */
     public function index()
     {
-        $recipes = Recipe::orderBy('published_at', 'desc')->get();
-        return view('recipes.index', compact('recipes'));
+        $recipes = Recipe::orderBy('created_at', 'desc')->get();
+          return view('recipes.index', compact('recipes'));
     }
 
     /**
@@ -22,7 +23,8 @@ class RecipeController extends Controller
      */
     public function create()
     {
-        return view('recipes.create');
+        $categories = Category::all(); // Fetch all categories
+        return view('recipes.create', compact('categories'));
     }
     
 
@@ -31,36 +33,30 @@ class RecipeController extends Controller
      */
     public function store(Request $request)
     {
-       
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'ingredients' => 'required|string',
             'steps' => 'required|string',
             'image' => 'nullable|image|max:2048',
-            'category' => 'required|string',  // category validation
-        ]);
+'category_id' => 'required|exists:categories,id',        ]);
     
-        $imagePath = null;
-    
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('recipes', 'public');
-        }
-    
-        Recipe::create([
-            'title' => $request->title,
-            'description' => $request->description,
-            'ingredients' => $request->ingredients,
-            'steps' => $request->steps,
-            'image' => $imagePath,
-            'user_id' => Auth::id(),
-            'category' => $request->category, 
+        $imagePath = $request->hasFile('image')
+        ? $request->file('image')->store('recipes', 'public')
+        : null;
 
-        ]);
-    
-        return redirect()->route('recipes.index')->with('success', 'Recipe added successfully!');
-    }
+    Recipe::create([
+        'title' => $request->title,
+        'description' => $request->description,
+        'ingredients' => $request->ingredients,
+        'steps' => $request->steps,
+        'image' => $imagePath,
+        'user_id' => Auth::id(),
+        'category_id' => $request->category_id, // Save the category_id
+    ]);
 
+    return redirect()->route('recipes.index')->with('success', 'Recipe added successfully!');
+}
     /**
      * Display the specified resource.
      */
@@ -75,7 +71,9 @@ class RecipeController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $recipe = Recipe::findOrFail($id);
+        $categories = Category::all(); // Fetch all categories for editing
+        return view('recipes.edit', compact('recipe', 'categories'));
     }
 
     /**
@@ -92,7 +90,7 @@ class RecipeController extends Controller
     'ingredients' => 'required|string',
     'steps' => 'required|string',
     'image' => 'nullable|image|max:2048',
-    'category' => 'required|string',  // Ensure category is validated
+    'category_id' => 'required|exists:categories,id', // Validate category_id
 
         ]);
     
@@ -106,7 +104,7 @@ class RecipeController extends Controller
             'image' => $path,
             'ingredients' => $request->ingredients,
             'steps' => $request->steps,
-            'category' => $request->category, 
+            'category_id' => $request->category_id, // Update category_id
 
         ]);
     
@@ -126,9 +124,11 @@ class RecipeController extends Controller
     }
 
     public function category($category)
-{
-    $recipes = Recipe::where('category', $category)->orderBy('published_at', 'desc')->get();
-    return view('recipes.category', compact('recipes', 'category'));
-}
-
+    {
+        $categoryModel = Category::where('name', $category)->firstOrFail();
+        $recipes = $categoryModel->recipes()->orderBy('published_at', 'desc')->get();
+        return view('recipes.category', compact('recipes', 'category'));
+    }
+    
+    
 }

@@ -25,32 +25,12 @@
             <p class="text-muted-light py-3">
                This recipe website offers a variety of cooking techniques, from simple to complex, that will help you become an expert in 2023. From making delicious pastries to mastering your favorite dishes, these recipes will guide you through the process and help you unlock your culinary potential.
             </p>
-            <a href="/" class="btn-orange">Read More</a>
+            <a href="{{ route('recipes.index') }}"  class="btn-orange">Read More</a>
          </div>
       </div>
    </div>
 
 
- <!-- Blog Categories -->
-<div class="blog-categories">
-   <h2 class="blog-title">Blog Categories</h2>
-   <div class="container">
-      <div class="row row-cols-2 row-cols-md-4 g-3">
-         <div class="col">
-            <a href="#lunch" class="blog-category">Lunch</a>
-         </div>
-         <div class="col">
-            <a href="#healthy" class="blog-category">Healthy</a>
-         </div>
-         <div class="col">
-            <a href="#dessert" class="blog-category">Dessert</a>
-         </div>
-         <div class="col">
-            <a href="#drinks" class="blog-category">Drinks</a>
-         </div>
-      </div>
-   </div>
-</div>
 
 
 <!-- Sections -->
@@ -104,7 +84,7 @@
                <p class="text-dark">
                   Learn the secrets to perfect baking with these simple yet effective tips. Transform your desserts into delightful masterpieces.
                </p>
-               <a href="/news/1" class="btn-orange mt-3">Read More</a>
+               <a href="/news" class="btn-orange mt-3">Read More</a>
             </div>
          </div>
       </div>
@@ -119,7 +99,7 @@
                <p class="text-dark">
                   Discover how to prepare quick, healthy meals with these expert tips that will save you time without compromising on nutrition.
                </p>
-               <a href="/news/2" class="btn-orange mt-3">Read More</a>
+               <a href="/news" class="btn-orange mt-3">Read More</a>
             </div>
          </div>
       </div>
