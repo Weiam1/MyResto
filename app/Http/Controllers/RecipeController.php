@@ -69,7 +69,7 @@ class RecipeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit( $id)
     {
         $recipe = Recipe::findOrFail($id);
         $categories = Category::all(); // Fetch all categories for editing
@@ -79,7 +79,7 @@ class RecipeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request,  $id)
     {
         
         $recipe = Recipe::findOrFail($id);
@@ -100,13 +100,14 @@ class RecipeController extends Controller
         }
     
         $recipe->update([
-            'title' => $request->title,
-            'image' => $path,
-            'ingredients' => $request->ingredients,
-            'steps' => $request->steps,
-            'category_id' => $request->category_id, // Update category_id
+        'title' => $request->title,
+        'description' => $request->description,
+        'ingredients' => $request->ingredients,
+        'steps' => $request->steps,
+        'image' => $path,
+        'category_id' => $request->category_id,
+    ]);
 
-        ]);
     
         return redirect()->route('recipes.index')->with('success', 'Recipe updated successfully!');
     }
@@ -116,7 +117,7 @@ class RecipeController extends Controller
      */
     public function destroy(string $id)
     {
-        $recipe = Recipe::findOrFail($id);
+    $recipe = Recipe::findOrFail($id);
     $recipe->delete();
 
     return redirect()->route('recipes.index')->with('success', 'Recipe deleted successfully!');

@@ -33,6 +33,7 @@
                </p>
                <a href="/recipes/{{$recipe->id}}" class="btn-orange">Read More</a>
             </div>
+            
          </div>
       </div>
    </div>
