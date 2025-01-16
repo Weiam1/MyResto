@@ -130,6 +130,23 @@ class RecipeController extends Controller
         $recipes = $categoryModel->recipes()->orderBy('published_at', 'desc')->get();
         return view('recipes.category', compact('recipes', 'category'));
     }
+
+    public function rateRecipe(Request $request, $id)
+{
+    $recipe = Recipe::findOrFail($id);
+
+    $request->validate([
+        'rating' => 'required|integer|between:1,5',
+    ]);
+
+    $recipe->ratings()->updateOrCreate(
+        ['user_id' => Auth::id()],
+        ['rating' => $request->rating]
+    );
+
+    return redirect()->route('recipes.show', $id)->with('success', 'Recipe rated successfully!');
+}
+
     
     
 }

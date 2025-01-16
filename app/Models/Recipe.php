@@ -23,4 +23,17 @@ class Recipe extends Model
     return $this->hasMany(Comment::class);
 }
 
+public function ratings()
+{
+    return $this->hasMany(Rating::class);
+}
+
+// لحساب متوسط التقييم
+public function averageRating()
+{
+    $average = $this->ratings()->avg('rating');
+    return $average ? round($average, 2) : 0;
+
+}
+
 }

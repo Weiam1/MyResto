@@ -32,6 +32,25 @@
     <h1 class="display-4 fw-bold text-dark-orange">{{ $recipe->title }}</h1>
     <p class="text-muted">{{ $recipe->description }}</p>
 
+    <!-- Rating Section -->
+    <div>
+    <h3>Average Rating: {{ $recipe->averageRating() ?? 'Not rated yet' }}</h3>
+</div>
+@if(Auth::check())
+    <form action="{{ route('recipes.rate', $recipe->id) }}" method="POST" class="mt-3">
+        @csrf
+        <label for="rating">Rate this recipe:</label>
+        <select name="rating" id="rating" class="form-control" required>
+            <option value="" disabled selected>Choose rating</option>
+            @for($i = 1; $i <= 5; $i++)
+                <option value="{{ $i }}">{{ $i }} Star{{ $i > 1 ? 's' : '' }}</option>
+            @endfor
+        </select>
+        <button type="submit" class="btn btn-primary mt-2">Submit</button>
+    </form>
+@endif
+
+
     <!-- Comments Section -->
     <div class="comments-section mt-5">
         <h3>Comments</h3>

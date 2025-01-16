@@ -106,7 +106,8 @@ Route::get('/recipes', [RecipeController::class, 'index'])->name('recipes.index'
 Route::get('/recipes/{id}', [RecipeController::class, 'show'])->name('recipes.show');
 Route::get('/recipes/category/{category}', [RecipeController::class, 'category'])->name('recipes.category');
 Route::post('/comments', [App\Http\Controllers\CommentController::class, 'store'])->name('comments.store');
- 
+Route::post('/recipes/{id}/rate', [RecipeController::class, 'rateRecipe'])->middleware('auth')->name('recipes.rate');
+
  //Search for a recipe
 
  
