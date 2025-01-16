@@ -1,6 +1,21 @@
 <x-guest-layout>
     <form method="POST" action="{{ route('register') }}">
         @csrf
+<!-- Username Field -->
+<div class="mb-4">
+    <label for="username" class="form-label">Username</label>
+    <input type="text" 
+           name="username" 
+           id="username" 
+           class="form-control" 
+           placeholder="Enter a unique username" 
+           value="{{ old('username') }}" 
+           required>
+    @error('username')
+        <span class="text-danger">{{ $message }}</span>
+    @enderror
+</div>
+
 
         <!-- Name -->
         <div>

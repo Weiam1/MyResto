@@ -52,8 +52,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
         Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
         Route::post('/users', [UserController::class, 'store'])->name('users.store');
     });
-Route::get('/news/{slug}', [NewsController::class, 'show'])->name('news.show');
-Route::get('/news', [NewsController::class, 'index'])->name('news.index');
+
     
 
     // Route::middleware(['auth'])->group(function () {
@@ -91,6 +90,8 @@ Route::put('/news/{slug}', [NewsController::class, 'update'])->name('news.update
 Route::delete('/news/{slug}', [NewsController::class, 'destroy'])->name('news.destroy');
 
 });
+Route::get('/news/{slug}', [NewsController::class, 'show'])->name('news.show');
+Route::get('/news', [NewsController::class, 'index'])->name('news.index');
 //Recipes management routes
 Route::middleware(['auth', 'admin'])->group(function () {
         Route::get('/recipes/create', [RecipeController::class, 'create'])->name('recipes.create');
