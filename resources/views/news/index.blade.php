@@ -27,7 +27,7 @@
       <div class="row align-items-center">
          <!-- Image Section -->
          <div class="col-md-6 mb-4">
-            <img class="img-fluid rounded" src="/images/{{$item->image}}" alt="Recipe Image">
+         <img class="img-fluid rounded" src="{{ asset($item->image) }}" alt="Recipe Image">
          </div>
 
          <!-- Content Section -->

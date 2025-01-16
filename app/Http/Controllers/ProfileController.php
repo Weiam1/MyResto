@@ -63,8 +63,11 @@ class ProfileController extends Controller
         // البحث عن المستخدم بناءً على اسم المستخدم
         $user = User::where('username', $username)->firstOrFail();
 
+        $savedRecipes = $user->savedRecipes()->latest()->get();
+
+
         // عرض صفحة الملف الشخصي العام
-        return view('profile.show', compact('user'));
+        return view('profile.show', compact('user', 'savedRecipes'));
     }
 
     /**
@@ -107,6 +110,7 @@ class ProfileController extends Controller
         return view('profile.search-results', compact('users'));
     }
     
+
     
     
 }
