@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Recipe extends Model
-{ protected $fillable = ['title', 'description', 'ingredients', 'steps', 'image', 'user_id', 'category_id'];
+{
+    use HasFactory;
+    protected $fillable = ['title', 'description', 'ingredients', 'steps', 'image', 'user_id', 'category_id'];
 
     public function category()
     {
