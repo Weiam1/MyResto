@@ -40,6 +40,7 @@ public function store(Request $request)
     // التحقق من صحة البيانات
     $validated = $request->validate([
         'name' => 'required|string|max:255',
+        'username' => 'required|string|max:255|unique:users',
         'email' => 'required|email|unique:users,email',
         'password' => 'required|min:6|confirmed',
         'is_admin' => 'required|boolean',
@@ -48,6 +49,8 @@ public function store(Request $request)
     // إنشاء المستخدم الجديد
     User::create([
         'name' => $validated['name'],
+        'username' => $validated['username'], // حفظ اسم المستخدم
+
         'email' => $validated['email'],
         'password' => bcrypt($validated['password']), // تشفير كلمة المرور
         'is_admin' => $validated['is_admin'],
