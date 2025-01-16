@@ -35,5 +35,9 @@ public function averageRating()
     return $average ? round($average, 2) : 0;
 
 }
+public function savedByUsers()
+{
+    return $this->belongsToMany(User::class, 'saved_recipes');
+}
 
 }

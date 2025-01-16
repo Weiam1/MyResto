@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="container text-center pt-5 pb-3">
-    <h1 class="display-4 fw-bold text-dark-orange">{{ $user->username ?? 'No Username' }}</h1>
+    <h1 class="display-4 fw-bold text-dark-orange">{{ $user->name ?? 'No Username' }}</h1>
 </div>
 
 <div class="container py-5">
@@ -15,6 +15,7 @@
 @else
 <img class="img-fluid rounded" src="/storage/profile_pictures/{{ $user->profile_picture }}" alt="Profile Picture">
 @endif
+
 
 
          </div>
@@ -41,6 +42,28 @@
 @endif
 
          </div>
+         <div class="container py-5">
+    <h2 class="display-5 fw-bold text-dark-orange">Saved Recipes</h2>
+    @if($savedRecipes->isEmpty())
+        <p class="text-muted">No recipes saved yet.</p>
+    @else
+        <div class="row">
+            @foreach($savedRecipes as $recipe)
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow">
+                        <img src="{{ asset('storage/' . $recipe->image) }}" class="card-img-top" alt="Recipe Image">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $recipe->title }}</h5>
+                            <p class="card-text">{{ Str::limit($recipe->description, 100) }}</p>
+                            <a href="{{ route('recipes.show', $recipe->id) }}" class="btn btn-primary">View Recipe</a>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    @endif
+</div>
+
       </div>
    </div>
 </div>

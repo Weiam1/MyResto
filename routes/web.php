@@ -9,6 +9,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\SavedRecipeController;
 
 
 // Authentication Routes
@@ -108,7 +109,13 @@ Route::get('/recipes/category/{category}', [RecipeController::class, 'category']
 Route::post('/comments', [App\Http\Controllers\CommentController::class, 'store'])->name('comments.store');
 Route::post('/recipes/{id}/rate', [RecipeController::class, 'rateRecipe'])->middleware('auth')->name('recipes.rate');
 
- //Search for a recipe
+//Save recipes routes
+Route::middleware(['auth'])->group(function () {
+        Route::post('/recipes/{recipeId}/save', [SavedRecipeController::class, 'saveRecipe'])->name('recipes.save');
+        Route::delete('/recipes/{recipeId}/unsave', [SavedRecipeController::class, 'unsaveRecipe'])->name('recipes.unsave');
+        Route::get('/profile/saved-recipes', [SavedRecipeController::class, 'showSavedRecipes'])->name('profile.saved-recipes');
+    });
+    
 
  
 

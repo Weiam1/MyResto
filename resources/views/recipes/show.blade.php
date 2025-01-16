@@ -26,6 +26,19 @@
                 {{ $recipe->user ? $recipe->user->name : 'Unknown author' }}
             </p>
             
+            @if(Auth::check() && Auth::user()->savedRecipes->contains($recipe->id))
+    <form action="{{ route('recipes.unsave', $recipe->id) }}" method="POST">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn btn-danger">Unsave Recipe</button>
+    </form>
+@else
+    <form action="{{ route('recipes.save', $recipe->id) }}" method="POST">
+        @csrf
+        <button type="submit" class="btn btn-primary">Save Recipe</button>
+    </form>
+@endif
+
          </div>
          
          <div class="container py-5">

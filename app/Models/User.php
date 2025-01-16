@@ -70,5 +70,9 @@ public function ratings()
     return $this->hasMany(Rating::class);
 }
 
+public function savedRecipes()
+{
+    return $this->belongsToMany(Recipe::class, 'saved_recipes');
+}
 
 }
