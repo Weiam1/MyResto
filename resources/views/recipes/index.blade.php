@@ -18,7 +18,8 @@
         @foreach ($recipes as $recipe)
         <div class="col-md-6">
             <div class="card border-0 shadow-sm h-100 bg-light-beige">
-                <img src="{{ asset('storage/' . $recipe->image) }}" class="card-img-top object-cover rounded" alt="Recipe Image">
+
+                <img src="{{ asset($recipe->image) }}" class="card-img-top object-cover rounded" alt="Recipe Image">
                 <div class="card-body">
                     <h5 class="card-title text-dark-orange">{{ $recipe->title }}</h5>
                     <p class="text-muted" style="font-size: 0.9rem;">By: {{ $recipe->user->name }} | {{ $recipe->updated_at ? $recipe->updated_at->format('d-m-Y') : 'No Date Available' }}</p>
