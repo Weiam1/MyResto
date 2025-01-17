@@ -168,5 +168,38 @@ You can log in as an admin using the following credentials:
 ---
 
 
+### **References**
+This project utilizes knowledge and resources from the following references:
 
+1. **Laravel Documentation**  
+   - Official Laravel documentation was used as a primary source for understanding the framework's features and functionalities.  
+   - URL: [https://laravel.com/docs](https://laravel.com/docs)
+
+2. **Bootstrap Documentation**  
+   - Used for designing and styling the front-end components of the website.  
+   - URL: [https://getbootstrap.com/docs](https://getbootstrap.com/docs)
+
+3. **Stack Overflow**  
+   - For troubleshooting common issues and understanding Laravel-specific errors.  
+   - URL: [https://stackoverflow.com](https://stackoverflow.com)
+
+4. **Tutorials and Guides**  
+   - Some inspiration for specific implementations was taken from online tutorials.(
+    -https://youtu.be/ztuLmf1PKz8?si=Ff3jh9o1ppG7G1zC
+    -https://youtube.com/@abohamidschool?si=BDf-p_yGvUPFFSG8
+    -https://youtu.be/P-KVYWoSz5k?si=gsdTn60Zm2yalraP
+    -https://youtu.be/f6uQfOw2_6o?si=JDcQfsNSWV9SX_Yp
+    -https://youtu.be/Q4z6U23cTVc?si=Gh5i15rbrmf64VZl
+
+   )
+
+5. **Icons and Design Elements**  
+   - Font Awesome was used for icons across the website.  
+   - URL: [https://fontawesome.com](https://fontawesome.com)
+
+6. **PHP Official Documentation**  
+   - Referenced for understanding PHP functions and syntax.  
+   - URL: [https://www.php.net/docs.php](https://www.php.net/docs.php)
+
+7.OpenAI assistance for code optimization and documentation.(https://chatgpt.com/)
 
